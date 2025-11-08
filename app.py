@@ -55,10 +55,22 @@ def main() -> None:
     print("🔧 zk-block-soundness")
     print(f"🔗 RPC: {args.rpc}")
 
+        # Display chain ID and friendly network name
     try:
-        print(f"🧭 Chain ID: {w3.eth.chain_id}")
+        chain_id = w3.eth.chain_id
+        network_names = {
+            1: "Ethereum Mainnet",
+            5: "Goerli Testnet",
+            11155111: "Sepolia Testnet",
+            137: "Polygon Mainnet",
+            42161: "Arbitrum One",
+            10: "Optimism Mainnet",
+            8453: "Base Mainnet"
+        }
+        network_name = network_names.get(chain_id, "Unknown Network")
+        print(f"🧭 Chain ID: {chain_id} ({network_name})")
     except Exception:
-        pass
+        print("⚠️ Could not fetch chain ID.")
 
     block_label = args.block if args.block is not None else "latest"
     print(f"🧱 Analyzing block: {block_label}")
