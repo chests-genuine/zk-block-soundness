@@ -18,6 +18,16 @@ It can be used for monitoring block-level consistency and data reliability in **
 3. Optionally set your RPC endpoint:
    export RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
 
+## Usage
+Analyze the latest block:
+   python app.py
+
+Analyze a specific block:
+   python app.py --block 21000000
+
+Emit JSON output for automation:
+   python app.py --block 21000000 --json
+   
 ## Example Output
 🕒 Timestamp: 2025-11-08T12:22:35.415Z  
 🔧 zk-block-soundness  
